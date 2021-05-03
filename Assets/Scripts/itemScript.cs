@@ -11,7 +11,7 @@ public class itemScript : MonoBehaviour
         {
             PlayerController.jumpSpeed = 20;
             Destroy(gameObject);
-
+            win.SetActive(true);
         }
     }
 }

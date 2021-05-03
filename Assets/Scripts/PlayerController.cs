@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed = 1;
-    Vector2 player;
+    public float speed;
     Rigidbody2D rb2D;
+    public static float jumpSpeed=20;
 
     void Start()
     {
@@ -23,9 +24,9 @@ public class PlayerController : MonoBehaviour
 
         transform.Translate(hMovement, 0, 0);
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && CheckGround.isGrounded)
         {
-            rb2D.velocity = new Vector2(0, rb2D.velocity.y);
+            rb2D.velocity = new Vector2(rb2D.velocity.x, jumpSpeed);
         }
     }
 
